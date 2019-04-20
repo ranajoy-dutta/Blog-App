@@ -1,0 +1,18 @@
+<p>
+  <strong>Title:</strong>
+  <%= @toshow.title %>
+</p>
+ 
+<p>
+  <strong>Text:</strong>
+  <%= @toshow.body %>
+</p>
+
+<%= link_to 'Edit', edit_article_path(@toshow) %>
+<%= link_to 'Destroy', article_path(@toshow),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+<%= link_to 'Back', root_path %>
+
+
+
