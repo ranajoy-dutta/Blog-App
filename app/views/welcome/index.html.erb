@@ -1,20 +1,7 @@
-
-<h1>Welcome to My Blogs</h1>
-    <%= link_to "Create Blog", new_article_path %>
-</h3>
-
-
-<h1>Listing articles</h1>
- 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Text</th>
-    <th></th>
-  </tr>
- 
+<h1 class="text-center mt-4">Listing articles</h1>
+<ul class="nav nav-pills nav-fill"> <li class="nav-item"> <a class="nav-link" href="#">Active</a> </li> <li class="nav-item"> <a class="nav-link" href="#">Longer nav link</a> </li> <li class="nav-item"> <a class="nav-link" href="#">Link</a> </li> </ul>
   <% @toindex.each do |article| %>
-    <tr>
+  div.
       <td><%= article.title %></td>
       <td><%= article.body %></td>
       <td><%= link_to 'Show', article_path(article) %></td>
@@ -22,4 +9,3 @@
       <td><%= link_to 'Destroy', article_path(article), method: :delete, data: { confirm: 'Are you sure?' } %></td>
     </tr>
   <% end %>
-</table>
