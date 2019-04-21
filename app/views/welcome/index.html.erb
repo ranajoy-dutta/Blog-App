@@ -1,11 +1,22 @@
-<h1 class="text-center mt-4">Listing articles</h1>
-<ul class="nav nav-pills nav-fill"> <li class="nav-item"> <a class="nav-link" href="#">Active</a> </li> <li class="nav-item"> <a class="nav-link" href="#">Longer nav link</a> </li> <li class="nav-item"> <a class="nav-link" href="#">Link</a> </li> </ul>
+<u>
+  <h1 class="text-center mt-4">List of Articles</h1>
+</u>
+
+<div class="container-fluid">
   <% @toindex.each do |article| %>
-  div.
-      <td><%= article.title %></td>
-      <td><%= article.body %></td>
-      <td><%= link_to 'Show', article_path(article) %></td>
-      <td><%= link_to 'Edit', edit_article_path(article) %></td>
-      <td><%= link_to 'Destroy', article_path(article), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-  <% end %> 
+  <div class="card m-3"> 
+    <div class="card-header p-3"><h4> <%= link_to article.title, article_path(article) %> </h4> </div> 
+    <div class="card-block"> 
+      <p class="card-title pl-3 pr-3 pt-3"><%= truncate(article.body, :length=> 175 )%> </p> 
+      <div class="text-right">
+        <%= link_to 'Full Article', article,:class => " card-link btn btn-sm btn-info " %>
+        <%= link_to 'Edit', edit_article_path(article),:class => " card-link btn btn-sm btn-info " %>
+        <%= link_to 'Delete', article_path(article),method: :delete, data: { confirm: 'Are You Sure?' }, :class => "mr-3 card-link btn btn-sm btn-danger" %>
+      </div>
+    </div> 
+    <br>
+  </div>
+  <% end %>   
+
+
+</div>
