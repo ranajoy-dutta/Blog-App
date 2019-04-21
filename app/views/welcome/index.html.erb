@@ -7,11 +7,16 @@
   <div class="card m-3"> 
     <div class="card-header p-3"><h4> <%= link_to article.title, article_path(article) %> </h4> </div> 
     <div class="card-block"> 
-      <p class="card-title pl-3 pr-3 pt-3"><%= truncate(article.body, :length=> 175 )%> </p> 
-      <div class="text-right">
-        <%= link_to 'Full Article', article,:class => " card-link btn btn-sm btn-info " %>
-        <%= link_to 'Edit', edit_article_path(article),:class => " card-link btn btn-sm btn-info " %>
-        <%= link_to 'Delete', article_path(article),method: :delete, data: { confirm: 'Are You Sure?' }, :class => "mr-3 card-link btn btn-sm btn-danger" %>
+      <p class="card-title pl-3 pr-3 pt-4"><%= truncate(article.body, :length=> 200 )%> <%= link_to 'Read More', article,:class => "card-link" %></p> 
+      <div class="row">
+        <div class="col-6">
+          <p class="card-title pl-3 pr-3 text-secondary">Created on : <%= article.created_at %> </p> 
+        </div>
+        <div class="text-right col-6">
+          
+          <%= link_to 'Edit', edit_article_path(article),:class => "btn btn-sm btn-info m-1" %>
+          <%= link_to 'Delete', article_path(article),method: :delete, data: { confirm: 'Are You Sure?' }, :class => "mr-4  btn btn-sm btn-danger m-1" %>
+        </div>
       </div>
     </div> 
     <br>
