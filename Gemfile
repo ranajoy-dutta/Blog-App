@@ -39,6 +39,13 @@ gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
+# paperclip
+gem 'paperclip', '~> 6.1'
+
+gem "bootstrap_form", ">= 4.2.0"
+gem 'will_paginate', '~> 3.1', '>= 3.1.7'
+gem 'will_paginate-bootstrap4'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
