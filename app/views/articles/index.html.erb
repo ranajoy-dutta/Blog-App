@@ -1,0 +1,20 @@
+<div class="jumbotron m-3 text-center">
+  <div class="row">
+    <div class="col-2"></div>
+    <div class="col-8 text-center"> 
+      <h1 class="display-3">Welcome to My Blogs</h1>
+    </div>
+    
+    <div class="col-2">
+      <%# link_to "Home", root_path,:class => "btn btn-primary btn-sm m-1" %>
+      <%= link_to "Create Blog", new_article_path,:class => "btn btn-primary btn-sm" %>
+    </div>
+  </div>
+
+  <p>By Ranajoy Dutta</p> 
+  <hr class="my-2"> 
+  <p class="lead">This is a simple Web application to learn working of Ruby on Rails using implementation of basic CRUD Operations</p>  
+</div>
+<div class="text-center">
+  <%= link_to "Show all blogs", posts_path,:class => "btn btn-primary btn-lg" %>
+</div>

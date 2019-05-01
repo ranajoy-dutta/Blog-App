@@ -1,35 +1,25 @@
 <h1>Edit article</h1>
- 
-<%= form_with(model: @article, local: true) do |form| %>
- 
-  <% if @article.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@article.errors.count, "error") %> prohibited
-        this article from being saved:
-      </h2>
-      <ul>
-        <% @article.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
- 
-  <p>
-    <%= form.label :title %><br>
+   <%= bootstrap_form_for @article, html: { multipart: true }, local: true do |form| %>
+      <% if @article.errors.any? %>
+      <div id="error_explanation">
+        <h2>
+          <%= pluralize(@article.errors.count, "error") %> prohibited
+          this article from being saved:
+        </h2>
+        <ul>
+          <% @article.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+<b><%= form.file_field :image, label: "Upload Image" %>
     <%= form.text_field :title %>
-  </p>
+    <%= form.text_area :body, label: "Content" %></b>
+    <%= form.submit "Publish", :class => "btn btn-info btn-md" %>
+    <%= link_to 'Back', root_path,:class => "btn btn-primary btn-md" %>
+  <% end %>
+
  
-  <p>
-    <%= form.label :body %><br>
-    <%= form.text_area :body %>
-  </p>
- 
-  <p>
-    <%= form.submit %>
-  </p>
- 
-<% end %>
- 
-<%= link_to 'Back', root_path %>
+<%= link_to 'Back', posts_path %>

@@ -15,4 +15,9 @@
  */
  
 @import 'bootstrap';
-$enable-gradients:'true';
+body{
+background-image: url(/assets/bg1.jpeg);
+background-repeat: no-repeat;
+background-size:cover;
+overflow-x: hidden;
+}

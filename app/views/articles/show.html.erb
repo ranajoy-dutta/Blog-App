@@ -1,8 +1,12 @@
 <h1 class="text-center mt-4"><u><%= @toshow.title %></u></h1>
+<%= image_tag(@toshow.image.url(:medium),{:class => "mx-auto d-block rounded img-fluid"}) %>
+
 <p class="text-right card-title pl-3 pr-3 m-1 mr-3 text-secondary">Created on : <%= @toshow.created_at %> </p> 
 <div class="container">
-	<%= @toshow.body %>	
+	<%= simple_format(@toshow.body) %>	
 	<br><br>
 	<%= link_to 'Edit', edit_article_path(@toshow),:class => "btn btn-sm btn-info m-1" %>
-    <%= link_to 'Delete', article_path(@toshow),method: :delete, data: { confirm: 'Are You Sure?' }, :class => "mr-4  btn btn-sm btn-danger m-1" %>
+    <%= link_to 'Delete', article_path(@toshow),method: :delete, data: { confirm: 'Are You Sure?' }, :class => "btn btn-sm btn-danger m-1" %>
+    <%= link_to 'Back', posts_path, :class => "mr-4 btn btn-sm btn-secondary m-1" %>
+
 </div> 
