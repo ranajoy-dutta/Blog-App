@@ -1,8 +1,12 @@
 class ArticlesController < ApplicationController
 	
+	def home
+		@toindex = Article.all.order("created_at DESC").paginate(page: params[:page], per_page:3)
+		render 'articles'
+	end
+
 	def index
-		@toindex = Article.all
-		redirect_to root_path
+		
 	end
 	
 	def edit
@@ -12,7 +16,7 @@ class ArticlesController < ApplicationController
 	def update
 		@article = Article.find(params[:id])
 
-		if @article.update(edit_params)
+		if @article.update(article_params)
 			redirect_to @article
 		else
 			render 'edit'
@@ -46,10 +50,6 @@ class ArticlesController < ApplicationController
 	 
 	private
 	def article_params
-		params.require(:toform).permit(:title, :body)
-	end
-
-	def edit_params
-		params.require(:article).permit(:title, :body)
+		params.require(:article).permit(:title, :body, :image)
 	end
 end
