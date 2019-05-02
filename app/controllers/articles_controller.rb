@@ -1,12 +1,11 @@
 class ArticlesController < ApplicationController
-	
+	before_action :authenticate_user!, except: [:index, :home, :show]	
+
+	def index
+	end
 	def home
 		@toindex = Article.all.order("created_at DESC").paginate(page: params[:page], per_page:3)
 		render 'articles'
-	end
-
-	def index
-		
 	end
 	
 	def edit
@@ -24,11 +23,11 @@ class ArticlesController < ApplicationController
 	end
 
 	def new
-		@toform = Article.new
+		@toform = current_user.articles.build
 	end
 
 	def create
-	  @toform = Article.new(article_params)
+	  @toform = current_user.articles.build(article_params)
 	  if @toform.save
 	  	redirect_to @toform
 	  else
@@ -37,7 +36,7 @@ class ArticlesController < ApplicationController
 	end
 
 
-    def show
+  def show
 		@toshow = Article.find(params[:id])
 	end
 
