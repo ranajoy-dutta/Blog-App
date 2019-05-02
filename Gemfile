@@ -39,11 +39,19 @@ gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
-# paperclip
+# Easy upload management for ActiveRecord
 gem 'paperclip', '~> 6.1'
 
+# bootstrap_form is a rails form builder that makes it super easy to create beautiful-looking forms using Bootstrap 4
 gem "bootstrap_form", ">= 4.2.0"
+
+# will_paginate provides a simple API for performing paginated queries with Active Record, DataMapper and Sequel, and includes helpers for rendering pagination links in Rails, Sinatra and Merb web apps.
 gem 'will_paginate', '~> 3.1', '>= 3.1.7'
+
+# Flexible authentication solution for Rails with Warden
+gem 'devise', '~> 4.6', '>= 4.6.2'
+
+# This gem integrates the Twitter Bootstrap pagination component with the will_paginate pagination gem.
 gem 'will_paginate-bootstrap4'
 
 group :development, :test do
