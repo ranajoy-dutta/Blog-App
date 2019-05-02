@@ -5,8 +5,10 @@
 <div class="container">
 	<%= simple_format(@toshow.body) %>	
 	<br><br>
-	<%= link_to 'Edit', edit_article_path(@toshow),:class => "btn btn-sm btn-info m-1" %>
-    <%= link_to 'Delete', article_path(@toshow),method: :delete, data: { confirm: 'Are You Sure?' }, :class => "btn btn-sm btn-danger m-1" %>
+	<% if @toshow.user == current_user %>
+		<%= link_to 'Edit', edit_article_path(@toshow),:class => "btn btn-sm btn-info m-1" %>
+	    <%= link_to 'Delete', article_path(@toshow),method: :delete, data: { confirm: 'Are You Sure?' }, :class => "btn btn-sm btn-danger m-1" %>
+	<% end %>
     <%= link_to 'Back', posts_path, :class => "mr-4 btn btn-sm btn-secondary m-1" %>
 
 </div> 

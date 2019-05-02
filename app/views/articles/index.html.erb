@@ -5,9 +5,16 @@
       <h1 class="display-3">Welcome to My Blogs</h1>
     </div>
     
-    <div class="col-2">
-      <%# link_to "Home", root_path,:class => "btn btn-primary btn-sm m-1" %>
-      <%= link_to "Create Blog", new_article_path,:class => "btn btn-primary btn-sm" %>
+    <div class="col-2">   
+      <% if user_signed_in? %> 
+        <%= link_to "Logout", destroy_user_session_path,:class => "btn btn-danger btn-sm m-1", method: :delete %>
+      <% else %>
+        <%= link_to "Create Blog", new_article_path,:class => "btn btn-primary btn-sm" %><br>
+        <%= link_to "Sign Up", new_user_registration_path,:class => "btn btn-primary btn-sm m-1" %>
+        <%= link_to "Sign In", new_user_session_path,:class => "btn btn-primary btn-sm m-1" %>
+      <% end %> 
+      
+      
     </div>
   </div>
 

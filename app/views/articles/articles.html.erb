@@ -11,16 +11,16 @@
 </div>
 
 <div class="container-fluid">
-  <% sno = 0 %>
   <% @toindex.each do |article| %>
     <div class="card m-3">
       <div class="card-header ml-2">
-        <h4><%= sno+=1 %>. <%= link_to article.title, article_path(article) %> </h4>
+        <h4><%= link_to article.title, article_path(article) %> </h4>
       </div>
       <div class="row">
         <div class="col-10">
           <div class="card-body">
             <p class="card-title pl-3 pr-3 pt-2"><%= truncate(article.body, :length=> 300 )%> <%= link_to 'Read More', article,:class => "card-link" %></p> 
+            <p><%=article.user.email%></p>
           </div>
         </div>
         <div class="col-2  mt-2">
@@ -34,10 +34,14 @@
         <div class="col-6">
           <p class="card-title pl-3 pr-3 text-secondary">Created on : <%= article.created_at %> </p> 
         </div>
+
+        <% if article.user == current_user %>
         <div class="text-right col-6">  
           <%= link_to 'Edit', edit_article_path(article),:class => "btn btn-sm btn-info m-1" %>
           <%= link_to 'Delete', article_path(article),method: :delete, data: { confirm: 'Are You Sure?' }, :class => "mr-4  btn btn-sm btn-danger m-1" %>
         </div>
+        <% end %>
+        
       </div>
     </div>
   </div>
